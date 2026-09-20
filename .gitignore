@@ -34,6 +34,8 @@ yarn-error.log*
 # vercel / nitro
 .vercel
 .output
+.pnpm-store
+.pnpm-home
 
 # typescript
 next-env.d.ts
