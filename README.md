@@ -1,4 +1,4 @@
-## NYVA SKIN
+# NYVA SKIN
 
 Complete React + TypeScript skincare website, including all 20 supplied products and the five-product animated hero.
 
