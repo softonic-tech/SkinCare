@@ -7,9 +7,9 @@
   },
   "scripts": {
     "install:ci": "bash scripts/install-pnpm.sh",
-    "dev": "node scripts/run-framework.mjs dev",
-    "build": "node scripts/run-framework.mjs build",
-    "start": "npx --yes srvx --static .vercel/output/static .vercel/output/functions/__server.func/index.mjs",
+    "dev": "node init && node scripts/run-framework.mjs dev",
+    "build": "node init && node scripts/run-framework.mjs build",
+    "start": "node init && npx --yes srvx --static .vercel/output/static .vercel/output/functions/__server.func/index.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .vercel --ignore-pattern .output",
     "db:generate": "drizzle-kit generate"
   },
