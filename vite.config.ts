@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import vinext from "vinext";
 import { defineConfig } from "vite";
@@ -15,5 +16,12 @@ export default defineConfig({
       ? { watch: { useFsEvents: false, usePolling: true } }
       : {}),
   },
-  plugins: [vinext(), sites({ mockAuth: !managedLinux }), nitro()],
+  // Use @tailwindcss/vite so `@import "tailwindcss"` resolves as a package,
+  // not a local file (Vite postcss-import would look for ./tailwindcss).
+  plugins: [
+    tailwindcss(),
+    vinext(),
+    sites({ mockAuth: !managedLinux }),
+    nitro(),
+  ],
 });
