@@ -1,13 +1,10 @@
-import { env } from "cloudflare:workers";
-import { drizzle } from "drizzle-orm/d1";
-import * as schema from "./schema";
-
-export function getDb() {
-  if (!env.DB) {
-    throw new Error(
-      "Cloudflare D1 binding `DB` is unavailable. Set the `d1` field in .openai/hosting.json to `DB` or let your control plane inject the real binding values before using the database."
-    );
-  }
-
-  return drizzle(env.DB, { schema });
+/**
+ * Database access was originally wired to Cloudflare D1.
+ * This project now targets Vercel via Nitro; wire a Vercel-compatible
+ * database (Postgres, Turso, etc.) before calling getDb().
+ */
+export function getDb(): never {
+  throw new Error(
+    "Database is not configured for Vercel. Replace db/index.ts with a Vercel-compatible client before using getDb().",
+  );
 }

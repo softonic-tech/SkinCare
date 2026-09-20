@@ -10,7 +10,12 @@ Complete React + TypeScript skincare website, including all 20 supplied products
 5. Run `pnpm dev` and open http://localhost:5173.
 
 ## Build
-Run `pnpm build`. The project uses Vinext (React/Next-compatible routing on Vite) and produces a Cloudflare Worker build. Deploying elsewhere requires adapting the hosting configuration.
+Run `pnpm build`. The project uses Vinext (React/Next-compatible routing on Vite) with Nitro for Vercel.
+
+## Deploy (Vercel)
+1. Push this repo and import it in Vercel (Framework Preset: Other — already set via `vercel.json`).
+2. Vercel runs `pnpm build` and deploys the Nitro Build Output API from `.vercel/output`.
+3. Ensure Project Settings do not force Framework Preset to Next.js.
 
 ## Edit
 - `components/nyva-hero.tsx`: five floating products, pointer tilt, scroll movement, pause control, reduced-motion support.
